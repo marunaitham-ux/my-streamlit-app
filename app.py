@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Page configuration
-st.set_page_config(page_title="TGTWRDCn", page_icon=":mortar_board:", layout="wide")
+st.set_page_config(page_title="TGTWRDC", page_icon=":mortar_board:", layout="wide")
 
 # HEADER SECTION
 st.subheader("Welcome to :blue[TGTWRDC ADB College] :wave:")
@@ -52,7 +52,7 @@ Our experienced faculty members are dedicated to guiding students toward academi
 faculty_data = {
     "Preetham": "Head of Computer Science Department",
     "laxman": "Head of Business & Management",
-    "Dr.madhukar": "Head of Science & Research"
+    "Dr.rama krishna": "Head of Science & Research"
 }
 for name, role in faculty_data.items():
     st.markdown(f"**{name}** — *{role}*")
@@ -72,3 +72,4 @@ st.write("📞 +91 6301643804")
 st.write("✉️ naithammaruthi18@gmail.com")
 
 st.success("Thank you for visiting our college website!")
+
