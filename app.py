@@ -1,31 +1,74 @@
-from flask import Flask, render_template_string
+import streamlit as st
 
-app = Flask(__name__)
+# Page configuration
+st.set_page_config(page_title="TGTWRDCn", page_icon=":mortar_board:", layout="wide")
 
-# Simple HTML template with placeholders for photos
-html_template = """
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Government Tribal Welfare Residential Degree College for Women, Boath, Adilabad</title>
-</head>
-<body>
-    <h1>Welcome to Government Tribal Welfare Residential Degree College for Women, Boath, Adilabad</h1>
-    <p>This is a sample website for the college.</p>
+# HEADER SECTION
+st.subheader("Welcome to :blue[TGTWRDC ADB College] :wave:")
+st.title("Empowering Students for a Brighter Future")
+st.write("Discover our departments, courses, faculty, and upcoming events — all in one place!")
+
+# --- ABOUT SECTION ---
+st.header("About Our College")
+st.write("""
+TGTWRDC College was established in 2018 with the vision of providing quality education 
+in science, technology, and arts. Our mission is to prepare students with strong academic foundations 
+and real-world skills to succeed in their chosen careers.
+""")
+
+# --- DEPARTMENTS SECTION ---
+st.header("Departments")
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.subheader("💻 Computer Science")
+    st.write("Learn programming, AI, data analytics, and software development.")
+with col2:
+    st.subheader("🔬 Science & Research")
+    st.write("Focus on innovation and discovery in physics, chemistry, and biology.")
+with col3:
+    st.subheader("📊 Business & Management")
+    st.write("Develop leadership, finance, and entrepreneurship skills.")
+
+# --- COURSES SECTION ---
+st.header("Popular Courses")
+courses = [
+    "B.Sc Computer Science",
+    "B.A English Literature",
+    "B.Com Accounting",
+    "B.Sc Data Science"
     
-    <h2>College Photos</h2>
-    <img src="/static/photo1.jpg" alt="College Photo 1" width="300">
-    <img src="/static/photo2.jpg" alt="College Photo 2" width="300">
-    <!-- Add more <img> tags for additional photos, e.g., <img src="/static/photo3.jpg" ...> -->
-    
-    <p>For more information, visit the official site or contact the college.</p>
-</body>
-</html>
-"""
+]
+st.write("🎯 Here are some of our most popular programs:")
+for course in courses:
+    st.markdown(f"- {course}")
 
-@app.route('/')
-def home():
-    return render_template_string(html_template)
+# --- FACULTY SECTION ---
+st.header("Our Faculty")
+st.write("""
+Our experienced faculty members are dedicated to guiding students toward academic and professional success.
+""")
 
-if __name__ == '__main__':
-    app.run(debug=True)
+faculty_data = {
+    "Preetham": "Head of Computer Science Department",
+    "laxman": "Head of Business & Management",
+    "Dr.madhukar": "Head of Science & Research"
+}
+for name, role in faculty_data.items():
+    st.markdown(f"**{name}** — *{role}*")
+
+# --- EVENTS SECTION ---
+st.header("Upcoming Events")
+st.info("""
+🎓 *Annual College Fest* - December 10, 2025  
+🧠 *Tech Symposium* - January 22, 2026  
+🏆 *Sports Meet* - February 15, 2026
+""")
+
+# --- CONTACT SECTION ---
+st.header("Contact Us")
+st.write("📍 TGTWRDC College, adilabad, telangana")
+st.write("📞 +91 6301643804")
+st.write("✉️ naithammaruthi18@gmail.com")
+
+st.success("Thank you for visiting our college website!")
